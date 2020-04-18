@@ -1,5 +1,5 @@
 <template>
-  <article v-bind:class="getClass()">
+  <article v-bind:class="getClass">
     <h4>{{temperatureDetails.Date | formatDate}}</h4>
     <h4>Max/ Min: {{temperatureDetails.Temperature.Maximum.Value}}&#176;{{temperatureDetails.Temperature.Maximum.Unit}}/ {{temperatureDetails.Temperature.Minimum.Value}}&#176;{{temperatureDetails.Temperature.Minimum.Unit}}
     </h4>
@@ -15,23 +15,24 @@ export default {
     temperatureDetails: Object,
     activeDate: String
   },
-  methods: {
+  computed: {
     getClass () {
       if (this.$props.activeDate === this.$options.filters.formatTimeForFlights(this.temperatureDetails.Date)) {
         return 'card text-center active';
       } else {
         return 'card text-center';
       }
-    },
+    }
+  },
+  methods: {
     getIconUrl (iconNumber) {
       let icon = this.$options.filters.convertToTwoDigit(iconNumber);
-      return 'https://developer.accuweather.com/sites/default/files/'.concat(icon).concat('-s.png');
+      return process.env.VUE_APP_WEATHER_ICON + `${icon}-s.png`;
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .card {
   border: 1px solid #6b63ff;

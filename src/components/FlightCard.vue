@@ -9,7 +9,7 @@
     </div>
     <div class="flex-container between flight-detail">
       <div class="flex-container">
-        <img v-for="route in $props.flightDetails.route" :key="route.id" :src="`https://images.kiwi.com/airlines/32x32/${route.airline}.png`" alt="" />
+        <img v-for="route in $props.flightDetails.route" :key="route.id" :src="getFlightLogo(route.airline)" :alt="route.airline" />
       </div>
       <div>
         <p><span v-for="route in $props.flightDetails.route" :key="route.id">No-{{route.flight_no}}  </span></p>
@@ -30,18 +30,20 @@ export default {
   methods: {
     goToBooking(deeplink) {
       window.open(deeplink, '_blank');
+    },
+    getFlightLogo(airline) {
+      return process.env.VUE_APP_FLIGHT_ICON + `${airline}.png`;
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .card {
-    border: 1px solid #6b63ff;
-    padding: 10px;
-    border-radius: 6px;
-    margin: 10px 0px;
+  border: 1px solid #6b63ff;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 10px 0px;
 }
 .flight-detail {
   align-items: center;
