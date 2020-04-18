@@ -13,8 +13,8 @@
       </div>
       <div>
         <p><span v-for="route in $props.flightDetails.route" :key="route.id">No-{{route.flight_no}}  </span></p>
-        <p><img class="flight-icon" src="../assets/departures.svg" /> {{flightDetails.route[0].dTime | formatTime}}</p>
-        <p><img class="flight-icon" src="../assets/arrivals.svg" /> {{flightDetails.route[0].aTime | formatTime}} localtime</p>
+        <p><img class="flight-icon" src="../assets/departures.svg" /> {{flightDetails.route[0].dTime | formatUnixTimeToReadable}}</p>
+        <p><img class="flight-icon" src="../assets/arrivals.svg" /> {{flightDetails.route[0].aTime | formatUnixTimeToReadable}} localtime</p>
       </div>
       <button class="btn-primary" @click="goToBooking(flightDetails.deep_link)">Book</button>
     </div>

@@ -13,7 +13,7 @@ export default {
   },
   data () {
     return {
-      api: axios.create({ baseURL: 'https://api.skypicker.com/flights' }),
+      api: axios.create({ baseURL: process.env.VUE_APP_API_FLIGHTS }),
       data: [],
       error: null,
       params: {
@@ -21,7 +21,7 @@ export default {
             flyFrom: 'PRG',
             to: this.cityCode,
             dateFrom: this.activeDate,
-            partner: 'picky',
+            partner: process.env.VUE_APP_FLIGHT_PASS,
             v: 3
         }
       },

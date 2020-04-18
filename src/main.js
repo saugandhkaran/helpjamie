@@ -10,7 +10,7 @@ Vue.filter('formatDate', function (value) {
   }
 })
 
-Vue.filter('formatTime', function (value) {
+Vue.filter('formatUnixTimeToReadable', function (value) {
   if (value) {
     return moment.unix(value).format('hh:mm a')
   }

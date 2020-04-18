@@ -9,12 +9,12 @@ export default {
   },
   data () {
     return {
-      api: axios.create({ baseURL: 'https://dataservice.accuweather.com/forecasts/v1/daily/5day/' }),
+      api: axios.create({ baseURL: process.env.VUE_APP_API_WEATHER_DAILY_5DAY }),
       data: [],
       error: null,
       params: {
         params: {
-            apikey: '2btlwAkCadGeInVBMbUhzYIPECNiUVIu',
+            apikey: process.env.VUE_APP_WEATHER_PASS,
             metric: true
         }
       },
