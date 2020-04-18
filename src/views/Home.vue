@@ -17,7 +17,7 @@
 
     <section class="section" v-if="activeCity.id">
       <h3 class="text-center">Select your date</h3>
-      <!-- <weather-forecast :cityCode="activeCity.accuCode">
+      <weather-forecast :cityCode="activeCity.accuCode">
         <div slot-scope="{ data: weather, loading: loading, error: error }" class="flex-container x-scrollable">
           <h3 v-if="loading" class="text-center loading-animation">Loading weather forecast....</h3>
           <h3 class="error text-center" v-if="error">Something went wrong</h3>
@@ -29,7 +29,7 @@
             @click.native="changeDate(tempDetail.Date)">
           </temperature-card>
         </div>
-      </weather-forecast> -->
+      </weather-forecast>
     </section>
 
     <section class="section" v-if="activeCity.id">
