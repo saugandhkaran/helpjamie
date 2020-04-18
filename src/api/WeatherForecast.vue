@@ -9,7 +9,7 @@ export default {
   },
   data () {
     return {
-      api: axios.create({ baseURL: 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/' }),
+      api: axios.create({ baseURL: 'https://dataservice.accuweather.com/forecasts/v1/daily/5day/' }),
       data: [],
       error: null,
       params: {
